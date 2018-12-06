@@ -1,0 +1,73 @@
+<section id="one" class="tiles">
+	{% for post in site.posts limit:site.tiles-count %}
+	{% if site.tiles-source == 'posts' %}
+        <article>
+                 <span class="image">
+                        <img src="{{ post.image }}" alt="" />                       
+                        
+                </span>
+                <header class="major">
+
+                        <a href="{{ post.source }}" class="modalLink">{{ post.title }222</a>
+
+                        <a href="#gd-modal-overlay" class="gd-show-modal">Click to Watch our Video</a>
+             
+                <!-- Video Modal -->
+                <div id="gd-modal-overlay" class="gd-modal">
+                        <div class="gd-inner">
+                        <div class="gd-video-wrapper">
+                                <a href="#" class="gd-close gd-hide-modal" id="gd-close-anchor"></a>
+                                <iframe src="" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="gd-video"></iframe>
+                        </div>
+                        </div>
+                </div>
+
+
+                
+        <!--
+         <iframe id="cartoonVideo" width="560" height="315" src="//www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+
+                            <h3><a href="{{ post.source }}" class="icon" target="_blank">{{ post.title }}</a></h3>
+                      <div >
+                            <embed src="{{ post.source }}" autostart="true" loop="1" >
+
+                    </div>
+
+                    <h3><iframe src="{{ post.source | relative_url  }}" allowfullscreen class="icon" target="_blank">{{ post.title }}</iframe></h3>
+                    <h3><iframe id="video"  width="420" height="315"
+                            src="{{ post.source | relative_url  }}" frameborder="0" allowfullscreen class="icon" target="_blank">{{ post.title }}</iframe></h3>
+
+                    <div >
+                    <iframe  src="https://www.youtube.com/embed/vnoKLLui7JA" allowfullscreen></iframe>
+                    </div>
+
+                        <div >
+                            <embed src="{{ post.source }}" autostart="true" loop="1" >
+
+                    </div>
+
+                      <div >
+                            <iframe  src="{{ post.source }}" allowfullscreen></iframe>
+                            </div>
+
+                   -->
+                        <p>{{ post.description }}</p>
+                
+                </header>
+        </article>
+	{% endif %}
+	{% endfor %}
+	{% for page in site.pages limit:site.tiles-count %}
+	{% if site.tiles-source == 'pages' %}
+        <article>
+                <span class="image">
+                        <img src="{{ page.image }}" alt="" />
+                </span>
+                <header class="major">
+                        <h3><a href="{{ page.url | relative_url  }}" class="link">{{ page.title }}</a></h3>
+                        <p>{{ page.description }}</p>
+                </header>
+        </article>
+	{% endif %}
+	{% endfor %}
+</section>
