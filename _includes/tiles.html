@@ -8,14 +8,25 @@
                 </span>
                 <header class="major">
 
-                    <h3><a href="{{ post.source }}" class="icon" target="_blank">{{ post.title }}</a></h3>
-                    
+                        <a href="{{ post.source }}" class="modalLink">{{ post.title }222</a>
+
+                        <a href="#gd-modal-overlay" class="gd-show-modal">Click to Watch our Video</a>
+             
+                <!-- Video Modal -->
+                <div id="gd-modal-overlay" class="gd-modal">
+                        <div class="gd-inner">
+                        <div class="gd-video-wrapper">
+                                <a href="#" class="gd-close gd-hide-modal" id="gd-close-anchor"></a>
+                                <iframe src="" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="gd-video"></iframe>
+                        </div>
+                        </div>
+                </div>
 
 
+                
+        <!--
+         <iframe id="cartoonVideo" width="560" height="315" src="//www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
 
-
-
-                    <!--
                             <h3><a href="{{ post.source }}" class="icon" target="_blank">{{ post.title }}</a></h3>
                       <div >
                             <embed src="{{ post.source }}" autostart="true" loop="1" >

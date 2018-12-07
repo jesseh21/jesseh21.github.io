@@ -350,4 +350,8 @@
 
 	});
 
+
+	//Modal popup
+
+
 })(jQuery);
