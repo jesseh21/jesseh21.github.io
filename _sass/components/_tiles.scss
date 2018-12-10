@@ -182,58 +182,142 @@
 		}
 		
 //Modal popup
-		.modalDialog {
-			position: fixed;
-			font-family: Arial, Helvetica, sans-serif;
-			top: 0;
-			right: 0;
+//==========================================
+// Demo Styles
+//==========================================
+
+$bg: #5E35B1;
+html,body{height:100%;}body{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;background:$bg;color:white}
+
+header {
+	font-family: 'Alegreya Sans', sans-serif;
+	text-align: center;
+}
+
+.gd-show-modal {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.15);
+	display: inline-block;
+	padding: 0.75rem 0;
+	width: 100%;
+	font-weight: 500;
+	text-decoration: none;
+	background: #29B6F6;
+	color: white;
+}
+
+
+//==========================================
+// $Garage Door Variables
+//==========================================
+
+$modal-overlay-bg: rgba(#4A148C, 0.95);
+
+
+//==========================================
+// $Globals
+//==========================================
+
+body {
+	position: relative;
+}
+
+iframe,
+embed,
+object {
+	max-width: 100%;
+}
+
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+
+//==========================================
+// Garage Door Modal
+//==========================================
+
+.gd-modal {
+	position: fixed;
+	left: 0;
+	bottom: 100%;
+	min-height: 100%;
+	width: 100%;
+	z-index: 50000000000;
+	text-align: center;
+	background: $modal-overlay-bg;
+}
+
+#gd-modal-overlay {
+	.csstransforms & {
+		transition: transform 200ms cubic-bezier(.48,.01,.48,.99);
+	}
+
+	.no-csstransforms & {
+		transition: 200ms all cubic-bezier(.48,.01,.48,.99);
+	}
+
+	.csstransforms & {
+		&.opened {
+			transform: translateY(100%) translateZ(0);
+		}
+
+		&.closed {
+			transform: translateY(0) translateZ(0);
+		}
+	}
+
+	.no-csstransforms & {
+		&.opened {
 			bottom: 0;
-			left: 0;
-			background: rgba(0,0,0,0.8);
-			z-index: 9999;
-			opacity:0;
-			-webkit-transition: opacity 400ms ease-in;
-			-moz-transition: opacity 400ms ease-in;
-			transition: opacity 400ms ease-in;
-			pointer-events: none;
 		}
-	
-		.modalDialog:target {
-			opacity:1;
-			pointer-events: auto;
-		}
-		
-		.modalDialog > div {
-			width: 400px;
-			position: relative;
-			margin: 10% auto;
-			padding: 5px 20px 13px 20px;
-			border-radius: 10px;
-			background: #fff;
-			background: -moz-linear-gradient(#fff, #999);
-			background: -webkit-linear-gradient(#fff, #999);
-			background: -o-linear-gradient(#fff, #999);
-		}
-	
-		.close {
-			background: #606061;
-			color: #FFFFFF;
-			line-height: 25px;
-			position: absolute;
-			right: -12px;
-			text-align: center;
-			top: -10px;
-			width: 24px;
-			text-decoration: none;
-			font-weight: bold;
-			-webkit-border-radius: 12px;
-			-moz-border-radius: 12px;
-			border-radius: 12px;
-			-moz-box-shadow: 1px 1px 3px #000;
-			-webkit-box-shadow: 1px 1px 3px #000;
-			box-shadow: 1px 1px 3px #000;
-		}
-		
-		.close:hover { background: #00d9ff; }
+	}
+}
+
+.gd-video-wrapper {
+	padding: 1.25rem;
+	position: relative;
+}
+
+.gd-close {
+	&.gd-hide-modal {
+		text-align: right;
+		width: 100%;
+		display: block;
+		position: absolute;
+		top: -10px;
+		right: 32px;
+	}
+}
+
+#gd-close-anchor {
+	text-decoration: none;
+	color: #29B6F6;
+	&:hover {
+		color: #ab6ec4;
+	}
+}
+
+.gd-inner {
+	display: none;
+	margin: 0 auto;
+	max-width: 880px;
+	padding: 20px;
+	position: absolute;
+	top: 50%;
+	width: 100%;
+
+	.no-csstransforms & {
+		height: 281px;
+		margin-top: -140px;
+		margin-left: 250px;
+	}
+
+	.csstransforms & {
+		left: 50%;
+		width: 100%;
+		transform: translate(-50%, -50%);
+	}
+}
 	}
 
