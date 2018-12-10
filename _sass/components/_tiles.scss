@@ -188,7 +188,6 @@
 
 
 $bg: #5E35B1;
-html,body{height:100%;}body{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;background:$bg;color:white}
 
 header {
 	font-family: 'Alegreya Sans', sans-serif;
@@ -244,7 +243,7 @@ video {
 	bottom: 100%;
 	min-height: 100%;
 	width: 100%;
-	z-index: 50000000000;
+	z-index: 5000000;
 	text-align: center;
 	background: $modal-overlay-bg;
 }
