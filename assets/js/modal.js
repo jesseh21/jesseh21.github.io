@@ -1,27 +1,84 @@
-// Get the modal
-var modal = document.getElementById('myModal');
+//===================================
+// Video Modal Variables
+//===================================
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var gdVideo = $('#gd-video');
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
 
-modal = modal+1;
+//===================================
+// Froogaloop
+//===================================
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
+function playGDModalVid(playerID) {
+	var player = $f(playerID.get(0));
+
+	player.addEvent('ready', function(progress) {
+			player.api('play');
+	});
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+function pauseGDModalVid(playerID) {
+	var player = $f(playerID.get(0));
+
+	player.addEvent('ready', function() {
+			player.api('pause');
+	});
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+
+//===================================
+// Video Modal Events
+//===================================
+
+function openVideoModal(event) {
+	event.preventDefault();
+
+	var duration = 200,
+			modalId = $(this).attr('href'),
+			modal = $(modalId),
+			inner = modal.find(".gd-inner");
+
+	$('#gd-close-anchor').text('✕');
+
+	$('#gd-video').attr(
+		'src',
+		'https://player.vimeo.com/video/214092083'
+	);
+
+	$(".gd-inner").fitVids({
+		customSelector: "iframe[src^='https://player.vimeo.com']"
+	});
+
+	modal.removeClass('closed').addClass('opened');
+
+	setTimeout(function() {
+		inner.fadeIn(duration, function() {
+			playGDModalVid(gdVideo);
+		});
+	}, duration);
 }
+
+
+function closeVideoModal(event) {
+	event.preventDefault();
+
+	var duration = 200,
+			modal = $(this).closest(".gd-modal"),
+			inner = modal.find(".gd-inner");
+
+	inner.fadeOut(duration, function() {
+		pauseGDModalVid(gdVideo);
+		modal.removeClass('opened').addClass('closed');
+	});
+}
+
+
+//===================================
+// Video Modal Triggers
+//===================================
+
+$('.gd-show-modal').on('click', openVideoModal);
+$('.gd-show-modal').on('touchstart', openVideoModal);
+
+$('#gd-modal-overlay').on('click', closeVideoModal);
+$('#gd-modal-overlay').on('touchstart', closeVideoModal);
