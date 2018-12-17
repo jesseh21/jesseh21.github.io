@@ -7,65 +7,47 @@
                         
                 </span>
                 <header class="major">
-                  
-                        
-                        <h3><a href="#{{ post.source }}">{{ post.title }}.</a></h3>
 
+                        <h3><a href="{{ post.source }}" class="modalLink">{{ post.title }121</a></h3>
 
+                        <a href="#gd-modal-overlay" class="gd-show-modal">Click to Watch our Video</a>
+              <!-- Video Modal -->
+<div id="gd-modal-overlay" class="gd-modal">
+        <div class="gd-inner">
+            <div class="gd-video-wrapper">
+                <a href="#" class="gd-close gd-hide-modal" id="gd-close-anchor"></a>
+                <iframe src="" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="gd-video"></iframe>
+            </div>
+        </div>
+    </div>
 
+ <!--
+         <iframe id="cartoonVideo" width="560" height="315" src="//www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
 
-                        <!-- 
-                        <input data-button type=button onclick=spawnModal() value="Spawn Modal">
+                            <h3><a href="{{ post.source }}" class="icon" target="_blank">{{ post.title }}</a></h3>
+                      <div >
+                            <embed src="{{ post.source }}" autostart="true" loop="1" >
 
-                        <aside id=RFImodal style=opacity:0>
-                          
-                            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
-                              <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-                                <iframe src="//fast.wistia.net/embed/iframe/xad3os2q76?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%" ></iframe>
-                              </div>
+                    </div>
+
+                    <h3><iframe src="{{ post.source | relative_url  }}" allowfullscreen class="icon" target="_blank">{{ post.title }}</iframe></h3>
+                    <h3><iframe id="video"  width="420" height="315"
+                            src="{{ post.source | relative_url  }}" frameborder="0" allowfullscreen class="icon" target="_blank">{{ post.title }}</iframe></h3>
+
+                    <div >
+                    <iframe  src="https://www.youtube.com/embed/vnoKLLui7JA" allowfullscreen></iframe>
+                    </div>
+
+                        <div >
+                            <embed src="{{ post.source }}" autostart="true" loop="1" >
+
+                    </div>
+
+                      <div >
+                            <iframe  src="{{ post.source }}" allowfullscreen></iframe>
                             </div>
-                            <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
-                            <p>Expect a call from your very own Business Development Consultant within the next week. He/she will be calling from the 480 area code and will be ready to answer any questions you have about getting started in real estate.</p>
-                            <p>If you&rsquo;re unavailable when you receive the call, simply let your Consultant know and we&rsquo;ll reschedule the call for a date &amp; time that&rsquo;s convenient for you!</p>
-                            <button>&times;</button>
-                          
-                        </aside>
-               -->
 
-                        <!-- 
-                              <h3><a href="#{{ post.source }}">{{ post.title }}</a></h3>
-                                <div id="{{ post.source }}" class="modal-window">
-                                  <div>
-                                    <a href="#modal-close" title="Close" class="modal-close">close &times;</a>
-                                    {{ post.title }}</br>
-                                    <div><iframe  type="text/html" width="600" height="320" src="{{ post.source }}" allowfullscreen frameborder="0"></iframe> </div>
-                                  </div>
-                                </div> 
-                             
-                             
-                                <h3><a href="#{{ post.source }}">{{ post.title }}</a></h3>
-                        <div id="{{ post.source }}" class="modalDialog">
-                                <div>
-                                      
-                                        <a href="#close" title="Close" class="close">X</a>
-                                        <iframe  type="text/html" width="640" height="360" src="{{ post.source }}" allowfullscreen frameborder="0"></iframe> 
-                                </div>
-                        </div>
-
-                         
-
-                        <h3><a href="{{ post.source }}" class="icon" target="_blank">{{ post.title }}</a></h3>
-
-                        <h3><a href="#{{ post.source }}">{{ post.title }}</a></h3>
-                        <div id="{{ post.source }}" class="modalDialog">
-                                <div>
-                                
-                                        <a href="#close" title="Close" class="close">X</a>
-                                        <iframe  src="{{ post.source }}" allowfullscreen></iframe> 
-                                </div>
-                        </div>
-                         
-                        -->
+                   -->
                         <p>{{ post.description }}</p>
                 
                 </header>

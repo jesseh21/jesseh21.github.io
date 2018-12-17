@@ -350,6 +350,8 @@
 
 	});
 
+
+	//Modal popup
+
+
 })(jQuery);
-
-
